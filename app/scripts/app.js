@@ -26,6 +26,26 @@ angular.module('uiRouterPracticeApp')
   //
   // Now set up the states
   $stateProvider
+
+    .state('route_1', {
+      url: "/route1111",
+      views: {
+        "viewA": { template: "<div>AAAA route11111 view </div>" },
+        "viewB": { template: "<div>BBBB route11111 view </div>" }
+      }
+    })
+    .state('route_2', {
+      url: "/route_2222",
+      views: {
+        "viewA": { template: "<div>AAAA route2222 view </div>" },
+        "viewB": { template: "<div>AAAA route2222 view </div>" }
+      }
+    })
+
+
+
+
+
   /*
     .state('state1', {
       url: "/state1",
@@ -50,6 +70,13 @@ angular.module('uiRouterPracticeApp')
       }
     })
     */
+
+
+
+
+
+
+/*    
     .state('contents',{
     	url: 'contents/{id:int}',
     	controller: ['$scope', '$stateParams', function($scope, $stateParams){
@@ -68,7 +95,7 @@ angular.module('uiRouterPracticeApp')
     	template: '<div> page number is {{page}}</div>'
 
     });
-
+*/
     
 });
   

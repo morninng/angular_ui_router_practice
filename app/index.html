@@ -18,8 +18,12 @@
   <body ng-app="uiRouterPracticeApp">
 
 <ul>
+<!--
  <li><a ui-sref="contents({id:100})"> article no 100</a></li>
  <li><a ui-sref="contents({id:200})"> article no 200</a></li>
+ -->
+ <li><a ui-sref="route_1"> route 1</a></li>
+ <li><a ui-sref="route_2"> route 2</a></li>
 </ul>
 
 
@@ -27,7 +31,9 @@
     <a ui-sref="state1">State 1</a>
     <a ui-sref="state2">State 2</a>
 -->
-    <div ui-view></div>
+
+    <div ui-view="viewA" style="background-color:yellow"></div>
+    <div ui-view="viewB" style="background-color:#F0F8FF"></div>
 
   
     <!--[if lte IE 8]>
