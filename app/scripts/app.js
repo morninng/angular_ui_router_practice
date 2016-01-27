@@ -14,5 +14,63 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ]);
+  
+angular.module('uiRouterPracticeApp')
+  .config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/state1");
+  //
+  // Now set up the states
+  $stateProvider
+  /*
+    .state('state1', {
+      url: "/state1",
+      templateUrl: "views/state1.html"
+    })
+    .state('state1.list', {
+      url: "/list",
+      templateUrl: "views/state1.list.html",
+      controller: function($scope) {
+        $scope.items = ["A", "List", "Of", "Items"];
+      }
+    })
+    .state('state2', {
+      url: "/state2",
+      templateUrl: "views/state2.html"
+    })
+    .state('state2.list', {
+      url: "/list",
+      templateUrl: "views/state2.list.html",
+      controller: function($scope) {
+        $scope.things = ["A", "Set", "Of", "Things"];
+      }
+    })
+    */
+    .state('contents',{
+    	url: 'contents/{id:int}',
+    	controller: ['$scope', '$stateParams', function($scope, $stateParams){
+    		$scope.id = $stateParams.id;
+    	}],
+    	template: '<div>{{id}}</div>'
+    	 + '<a ui-sref=".pages({page: 1})"> -1 -</a>'
+    	 + '<a ui-sref=".pages({page: 2})"> -2 -</a>'
+    	 + '<div ui-view><div>'
+    })
+    .state('contents.pages', {
+    	url: '/pages/{page:int}',
+    	controller: ['$scope', '$stateParams', function($scope, $stateParams){
+    		$scope.page = $stateParams.page;
+    	}],
+    	template: '<div> page number is {{page}}</div>'
+
+    });
+
+    
+});
+  
+  
+  
