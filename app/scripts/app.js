@@ -22,11 +22,21 @@ angular.module('uiRouterPracticeApp')
   .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
+
   $urlRouterProvider.otherwise("/state1");
   //
   // Now set up the states
   $stateProvider
-
+    .state('/test_route', {
+      url: "/test_route_url",
+      views: {
+        "viewA":{
+          templateUrl: 'views/test_route.html',
+          controller: 'TestRouteCtrl'
+        },
+        "viewB": { template: "<div>BBBB route11111 view </div>" }
+      }
+    })
     .state('route_1', {
       url: "/route1111",
       views: {
